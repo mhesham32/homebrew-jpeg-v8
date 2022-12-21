@@ -5,16 +5,19 @@ class Jpeg < Formula
   sha256 "00029b1473f0f0ea72fbca3230e8cb25797fbb27e58ae2e46bb8bf5a806fe0b3"
 
   bottle do
-    cellar :any
+    sha256 cellar: :any,                 arm64_ventura:  "9f4b61fba5eac14705918c94e7f43ecfb7f20774d1c8195d15675ddce4e1b7d3"
+    sha256 cellar: :any,                 arm64_monterey: "5d4520a90181dd83b3f58b580cd3b952cacf7f7aa035d5fd7fddd98c1e6210d1"
+    sha256 cellar: :any,                 arm64_big_sur:  "27409eb75ac182025c27b4aa9c2290c40feec924cbe9edc095c754120c87bdf4"
+    sha256 cellar: :any,                 ventura:        "60e8af1b1b966df8aa970865dd17930b67edd23e10d3c96495879030a3b6f5ee"
+    sha256 cellar: :any,                 monterey:       "208af924cc7a42f53ab8ce50084eb76faadc3c1942e842484acbb2e74a54465c"
+    sha256 cellar: :any,                 big_sur:        "085e31212006e6afefc6e5141a02a06cb5bdebdbc8ca5edba50de0d95dd495fc"
+    sha256 cellar: :any,                 catalina:       "4c19f39c827ee7cdbc0f770b56c8ce553e94a5090e58da7eac3e2596b9408612"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5b15c19b1cfdee81b6c3ebb96b1a743157da600030f943c9e18cbbda0612924a"
     rebuild 2
-    sha256 "85d1f6055de99c1b764c697498bb86d003f5d24b324133f036f0393b97b3e869" => :sierra
-    sha256 "bbc74f8b5980065d7bf95927150c2d56806d30abea459c2b1edcbdeed2d7c458" => :el_capitan
-    sha256 "75419be793eefb3decd69de8ee0444ef697aef3d0f942361437c5d967fd8ecec" => :yosemite
-    sha256 "c94f5859603b34d9b3c1b021ee21cf3a41a5d92b178a41ed5c05a1e5b7d19ff5" => :mavericks
-    sha256 "816f0f826e633cb70f8efc173b6fe745fb9b90334d6cb78813de25f48aec6191" => :mountain_lion
-    sha256 "f94b7976c0e867dfc36ff6cead1d88db8b1198a91a01589e008d2006fcf37c61" => :lion
   end
 
+  keg_only "it conflicts with `jpeg-turbo`"
+  
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
