@@ -17,7 +17,7 @@ class Jpeg < Formula
     sha256 cellar: :any,                 monterey:       "208af924cc7a42f53ab8ce50084eb76faadc3c1942e842484acbb2e74a54465c"
     sha256 cellar: :any,                 big_sur:        "085e31212006e6afefc6e5141a02a06cb5bdebdbc8ca5edba50de0d95dd495fc"
     sha256 cellar: :any,                 catalina:       "4c19f39c827ee7cdbc0f770b56c8ce553e94a5090e58da7eac3e2596b9408612"
-    rebuild 2
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5b15c19b1cfdee81b6c3ebb96b1a743157da600030f943c9e18cbbda0612924a"
   end
 
   keg_only "it conflicts with `jpeg-turbo`"
